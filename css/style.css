@@ -285,7 +285,7 @@ img.frame::after{ content: none; }
   font-size: 1.3rem;
   color: var(--accent-deep);
 }
-.essay-block .frame{ margin-bottom: 1.6rem; max-width: 420px; aspect-ratio: 4/3; }
+.essay-block .frame{ margin-bottom: 1.6rem; max-width: 420px; aspect-ratio: 4/3; object-position: center top; }
 .essay-body p{ margin-bottom: 1.1rem; color: var(--ink); max-width: 720px; }
 .essay-body p:last-child{ margin-bottom:0; }
 
