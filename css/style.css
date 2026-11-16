@@ -430,6 +430,9 @@ img.frame::after{ content: none; }
 section .head p{
   font-family: 'Courier Prime', 'Courier New', monospace; font-style: italic; font-size: 0.95rem;
 }
+.essay-block .essay-header + .essay-body p{
+  font-family: 'Courier Prime', 'Courier New', monospace; font-style: italic; font-size: 0.95rem;
+}
 .milestone-text h3{ font-weight: 600; }
 .msg p + p{ margin-top: 0.8rem; }
 .own-words{ max-width: 760px; margin: 5rem auto 0; text-align: center; }
