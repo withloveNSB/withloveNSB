@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0, rootMargin: '0px 0px -5% 0px' });
     revealEls.forEach(el => io.observe(el));
 
     // Scrollspy for ribbon nav + mobile chapter label
