@@ -22,6 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+
+  // ---- Envelopes: tap to open / close a letter ----
+  document.querySelectorAll('.envelope').forEach(env => {
+    const btn = env.querySelector('.env-toggle');
+    btn.addEventListener('click', () => {
+      const open = env.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
   function initRevealAndSpy() {
     // Scroll-reveal
     const revealEls = document.querySelectorAll('.reveal');
