@@ -297,7 +297,7 @@ img.frame::after{ content: none; }
     column-count: 2;
     column-gap: 3.5rem;
   }
-  .essay-block img.frame + .essay-body p{ max-width: none; orphans: 3; widows: 3; }
+  .essay-block img.frame + .essay-body p{ max-width: none; orphans: 3; widows: 3; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
 }
 
 /* ---------- Behind the Camera ---------- */
