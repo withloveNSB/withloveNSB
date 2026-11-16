@@ -263,6 +263,8 @@ img.frame::after{ content: none; }
 .milestone-photos .frame{ aspect-ratio: 3/4; }
 .milestone-text h3{ font-size: 1.35rem; margin-bottom: 0.7rem; }
 .milestone-text p{ color: var(--ink-soft); }
+.milestone-text p + p{ margin-top: 0.9rem; }
+@media (min-width: 901px){ #journey, #camera{ padding-right: max(8vw, 250px); } }
 .milestone-note{
   margin-top: 0.8rem;
   font-style: italic;
