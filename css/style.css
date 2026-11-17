@@ -484,3 +484,40 @@ footer{
 @media (prefers-reduced-motion: reduce){
   .reveal-cover, .reveal{ animation: none !important; transition: none !important; opacity:1 !important; transform:none !important; }
 }
+
+
+/* ---------- Passcode gate (shown before the cover) ---------- */
+body.passlocked .cover{ display:none; }
+.pass-gate{
+  display:none; position:fixed; inset:0; z-index:1000;
+  align-items:center; justify-content:center; padding:1.5rem;
+  background: linear-gradient(160deg, #FCEFF1, #F4D6E2);
+}
+body.passlocked .pass-gate{ display:flex; }
+.pass-card{
+  width:min(100%, 400px); text-align:center; padding:2.6rem 2rem;
+  background:#FFFBFA; border-top:3px solid var(--gold);
+  box-shadow: 0 25px 55px -25px rgba(20,5,12,0.45); color:#4A1F2C;
+}
+.pass-seal{
+  width:46px; height:46px; margin:0 auto 1rem; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; color:#7a1f45; font-size:1.2rem;
+  background: radial-gradient(circle at 35% 30%, #E7C98A, #B98430 70%);
+  box-shadow:0 4px 10px rgba(30,5,15,.3);
+}
+.pass-card h2{ font-size:1.7rem; margin-bottom:.5rem; }
+.pass-card p{ font-size:.95rem; color:#8C5D6B; margin-bottom:1.4rem; }
+.pass-card input{
+  width:100%; padding:.8rem 1rem; font: inherit; text-align:center; letter-spacing:.12em;
+  border:1px solid #E3B7C6; border-radius:999px; background:#fff; color:#4A1F2C;
+}
+.pass-card input:focus{ outline:2px solid var(--gold); outline-offset:2px; }
+.pass-btn{
+  margin-top:1rem; padding:.75rem 2.2rem; border:0; border-radius:999px; cursor:pointer;
+  font:inherit; letter-spacing:.14em; text-transform:uppercase; font-size:.75rem;
+  background:#D98CA8; color:#fff;
+}
+.pass-btn:hover{ background:#C56E8B; }
+.pass-error{ min-height:1.4rem; margin-top:.9rem; font-size:.85rem; color:#9C2F55; font-style:italic; }
+.pass-card.shake{ animation: passShake .4s; }
+@keyframes passShake{ 20%,60%{ transform:translateX(-8px);} 40%,80%{ transform:translateX(8px);} }
