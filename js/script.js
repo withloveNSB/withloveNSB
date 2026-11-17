@@ -1,5 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ---- Passcode gate (a light deterrent, not strong security) ----
+  // To change the passcode, replace PASS_HASH with the SHA-256 of the new code
+  // (lowercase, no spaces).
+  const PASS_HASH = '0c08648e9038df85d9630a03723cbefcaa729c6941768088f4645f433d7514e1';
+  const gate = document.getElementById('passGate');
+  const form = document.getElementById('passForm');
+  const input = document.getElementById('passInput');
+  const errBox = document.getElementById('passError');
+
+  function openGate() {
+    document.body.classList.remove('passlocked');
+    if (gate) gate.style.display = 'none';
+  }
+  async function sha256(text) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+  let already = false;
+  try { already = sessionStorage.getItem('nsb_ok') === '1'; } catch (e) {}
+  if (already || !gate) { openGate(); }
+  else {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const code = input.value.trim().toLowerCase().replace(/\s+/g, '');
+      let ok = false;
+      try { ok = (await sha256(code)) === PASS_HASH; } catch (err) { errBox.textContent = 'Please open this page in a modern browser.'; return; }
+      if (ok) {
+        try { sessionStorage.setItem('nsb_ok', '1'); } catch (e2) {}
+        openGate();
+      } else {
+        errBox.textContent = "That isn't quite right. Please try again.";
+        form.classList.remove('shake'); void form.offsetWidth; form.classList.add('shake');
+        input.select();
+      }
+    });
+    input.focus();
+  }
+
   // ---- Gate: reveal the rest of the site on Enter ----
   const enterBtn = document.getElementById('enterBtn');
   const body = document.body;
