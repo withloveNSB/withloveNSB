@@ -8,7 +8,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Courier+Prime:ital@1&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="locked">
+<body class="locked passlocked">
+
+<div class="pass-gate" id="passGate" role="dialog" aria-label="Enter passcode">
+  <form class="pass-card" id="passForm" autocomplete="off">
+    <div class="pass-seal">&#9829;</div>
+    <h2>Just for you</h2>
+    <p>This page was made for one person. Please enter your passcode to come in.</p>
+    <input type="password" id="passInput" placeholder="Passcode" aria-label="Passcode" autocomplete="off" autocapitalize="off" spellcheck="false">
+    <button type="submit" class="pass-btn">Unlock</button>
+    <div class="pass-error" id="passError" aria-live="polite"></div>
+  </form>
+</div>
+
 
 <div class="mobile-chapter" id="mobileChapter">Cover</div>
 
